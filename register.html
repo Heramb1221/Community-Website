@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    <link rel="stylesheet" href="CSS/register.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="Images/Website Logo.png" alt="Website Logo" width="50" height="50">
+            <h1>Community Portal Registration</h1>
+        </div>
+    </header>
+
+    <section class="registration-form">
+        <h2>Register New User</h2>
+        
+        <!-- User Details Section -->
+        <h3>User Details</h3>
+        <form onsubmit="return validateForm()" method="post" action="registration_handler.php" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="fullName">Full Name (as per Aadhar):</label>
+                <input type="text" id="fullName" name="fullName" required>
+            </div>
+
+            <div class="form-group">
+                <label for="mobile">Mobile Number:</label>
+                <input type="tel" id="mobile" name="mobile" required pattern="[0-9]{10}">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" required min="0">
+            </div>
+
+            <div class="form-group">
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob" required>
+            </div>
+
+            <div class="form-group">
+                <label for="aadhar">Aadhar Number (required):</label>
+                <input type="text" id="aadhar" name="aadhar" required pattern="[0-9]{12}">
+            </div>
+
+            <div class="form-group">
+                <label for="pan">PAN Card Number:</label>
+                <input type="text" id="pan" name="pan" pattern="[A-Z]{5}[0-9]{4}[A-Z]{1}">
+            </div>
+
+            <div class="form-group">
+                <label for="caste">Caste:</label>
+                <select id="caste" name="caste" required>
+                    <option value="">Select Caste</option>
+                    <option value="Leva Patidar">Leva Patidar</option>
+                    <option value="Kunbi">Kunbi</option>
+                    <option value="Mali">Mali</option>
+                </select>
+            </div>
+
+            <!-- Aadhar Card Upload Field -->
+            <div class="form-group">
+                <label for="aadharCard">Upload Aadhar Card (JPEG, PNG only):</label>
+                <input type="file" id="aadharCard" name="aadharCard" accept=".jpg, .jpeg, .png" required>
+            </div>
+
+            <!-- Permanent Address Section -->
+            <h3>Permanent Address</h3>
+            <div class="form-group">
+                <label for="permanentHouseName">House Name, Colony Name:</label>
+                <input type="text" id="permanentHouseName" name="permanentHouseName" required>
+            </div>
+
+            <div class="form-group">
+                <label for="permanentCity">City:</label>
+                <input type="text" id="permanentCity" name="permanentCity" required>
+            </div>
+
+            <div class="form-group">
+                <label for="permanentState">State:</label>
+                <input type="text" id="permanentState" name="permanentState" required>
+            </div>
+
+            <div class="form-group">
+                <label for="permanentPincode">Pincode:</label>
+                <input type="text" id="permanentPincode" name="permanentPincode" required pattern="[0-9]{6}">
+            </div>
+
+            <div class="form-group">
+                <label for="permanentLandmark">Landmark:</label>
+                <input type="text" id="permanentLandmark" name="permanentLandmark" required>
+            </div>
+
+            <!-- Current Address Section -->
+            <h3>Current Address</h3>
+            <div class="form-group">
+                <label for="currentHouseName">House Name, Colony Name:</label>
+                <input type="text" id="currentHouseName" name="currentHouseName" required>
+            </div>
+
+            <div class="form-group">
+                <label for="currentCity">City:</label>
+                <input type="text" id="currentCity" name="currentCity" required>
+            </div>
+
+            <div class="form-group">
+                <label for="currentState">State:</label>
+                <input type="text" id="currentState" name="currentState" required>
+            </div>
+
+            <div class="form-group">
+                <label for="currentPincode">Pincode:</label>
+                <input type="text" id="currentPincode" name="currentPincode" required pattern="[0-9]{6}">
+            </div>
+
+            <div class="form-group">
+                <label for="currentLandmark">Landmark:</label>
+                <input type="text" id="currentLandmark" name="currentLandmark" required>
+            </div>
+
+            <!-- Spouse Details Section -->
+            <h3>Spouse Details</h3>
+            <div class="form-group">
+                <label for="spouseName">Name of Spouse (as per Aadhar):</label>
+                <input type="text" id="spouseName" name="spouseName" required>
+            </div>
+
+            <div class="form-group">
+                <label for="spouseAadhar">Aadhar Number of Spouse:</label>
+                <input type="text" id="spouseAadhar" name="spouseAadhar" pattern="[0-9]{12}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="spouseDob">Date of Birth of Spouse:</label>
+                <input type="date" id="spouseDob" name="spouseDob" required>
+            </div>
+
+            <!-- Children Details Section -->
+            <h3>Children Details</h3>
+            <div class="form-group">
+                <label for="childrenCount">Number of Children:</label>
+                <input type="number" id="childrenCount" name="childrenCount" required min="0" onchange="updateChildrenFields()">
+            </div>
+
+            <div id="childrenFields"></div>
+
+            <input type="submit" value="Register">
+        </form>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="contact-info">
+                <h3>Contact Admin</h3>
+                <p>Email: webadmin.communitysite@gamil.com</p>
+                <p>Phone: +91-123-456-7890</p>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 Community Portal. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function validateForm() {
+            const mobile = document.getElementById('mobile').value;
+            const aadhar = document.getElementById('aadhar').value;
+            const spouseAadhar = document.getElementById('spouseAadhar').value;
+            const aadharCard = document.getElementById('aadharCard').files[0]; // Get the uploaded file
+            const childrenCount = document.getElementById('childrenCount').value;
+
+            // Validate mobile number
+            if (mobile.length !== 10 || isNaN(mobile)) {
+                alert("Invalid Mobile Number. It must be 10 digits.");
+                return false;
+            }
+
+            // Validate Aadhar number
+            if (aadhar.length !== 12 || isNaN(aadhar)) {
+                alert("Invalid Aadhar Number. It must be 12 digits.");
+                return false;
+            }
+
+            // Validate spouse Aadhar number
+            if (spouseAadhar.length !== 12 || isNaN(spouseAadhar)) {
+                alert("Invalid Spouse Aadhar Number. It must be 12 digits.");
+                return false;
+            }
+
+            // Validate Aadhar Card upload
+            if (!aadharCard) {
+                alert("Please upload your Aadhar card.");
+                return false;
+            } else {
+                // Check file type
+                const validTypes = ["image/jpeg", "image/png"];
+                if (!validTypes.includes(aadharCard.type)) {
+                    alert("Only JPEG and PNG formats are allowed for Aadhar card.");
+                    return false;
+                }
+
+                // Check file size (limit to 5MB for example)
+                const maxSize = 5 * 1024 * 1024; // 5 MB
+                if (aadharCard.size > maxSize) {
+                    alert("Aadhar card file size must be less than 5MB.");
+                    return false;
+                }
+            }
+
+            // Validate children's details
+            for (let i = 0; i < childrenCount; i++) {
+                const childAge = document.getElementById('childAge' + i).value;
+                const childDob = document.getElementById('childDob' + i).value;
+
+                if (childAge < 0 || childDob === "") {
+                    alert("Invalid details for Child " + (i + 1) + ". Please fill all fields.");
+                    return false;
+                }
+            }
+
+            return true; // Allow form submission if all validation passes
+        }
+
+        function updateChildrenFields() {
+            const count = document.getElementById('childrenCount').value;
+            const container = document.getElementById('childrenFields');
+            container.innerHTML = ""; // Clear previous fields
+
+            for (let i = 0; i < count; i++) {
+                container.innerHTML += `
+                    <h4>Child ${i + 1} Details:</h4>
+                    <div class="form-group">
+                        <label for="childName${i}">Name:</label>
+                        <input type="text" id="childName${i}" name="childName${i}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="childAge${i}">Age:</label>
+                        <input type="number" id="childAge${i}" name="childAge${i}" required min="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="childDob${i}">Date of Birth:</label>
+                        <input type="date" id="childDob${i}" name="childDob${i}" required>
+                    </div>
+                `;
+            }
+        }
+    </script>
+</body>
+</html>

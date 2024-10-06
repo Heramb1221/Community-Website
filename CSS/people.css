@@ -1,0 +1,91 @@
+/* CSS for Find People Section */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2; /* Light gray background to match the website */
+}
+
+header {
+    background-color: #2c3e50; /* Dark header */
+    color: white;
+    padding: 30px; /* Increased padding for a bigger header */
+    text-align: center;
+}
+
+.logo img {
+    vertical-align: middle;
+}
+
+h1 {
+    display: inline;
+    margin-left: 10px;
+}
+
+.search-section {
+    padding: 20px;
+}
+
+.results-section {
+    padding: 20px;
+    background-color: #ffffff; /* White background for results */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 5px; /* Rounded corners */
+    margin: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #34495e; /* Darker text color for labels */
+}
+
+.form-group input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px; /* Rounded corners */
+}
+
+input[type="text"][readonly] {
+    background-color: #e9ecef; /* Light gray background for readonly input */
+}
+
+input[type="submit"] {
+    background-color: #2980b9; /* Blue background for submit button */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #3498db; /* Lighter blue on hover */
+}
+
+footer {
+    background-color: #2c3e50; /* Dark footer */
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+footer .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer .contact-info {
+    margin: 0;
+}
+
+footer .copyright {
+    margin: 0;
+}

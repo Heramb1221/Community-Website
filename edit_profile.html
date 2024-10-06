@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+    <link rel="stylesheet" href="CSS/profile.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="Images/Website Logo.png" alt="Website Logo" width="50" height="50">
+            <h1>Edit Profile</h1>
+        </div>
+    </header>
+
+    <section class="edit-profile-form">
+        <h2>Update Your Information</h2>
+        
+        <form onsubmit="return validateEditForm()" method="post" action="edit_profile_handler.php">
+            <div class="form-group">
+                <label for="fullName">Full Name:</label>
+                <input type="text" id="fullName" name="fullName" required value="Current Full Name" readonly>
+                <input type="hidden" name="originalFullName" value="Current Full Name">
+            </div>
+
+            <div class="form-group">
+                <label for="mobile">Mobile Number:</label>
+                <input type="tel" id="mobile" name="mobile" required pattern="[0-9]{10}">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob" required value="Current Date of Birth" readonly>
+                <input type="hidden" name="originalDob" value="Current Date of Birth">
+            </div>
+
+            <div class="form-group">
+                <label for="aadhar">Aadhar Number:</label>
+                <input type="text" id="aadhar" name="aadhar" required pattern="[0-9]{12}" value="Current Aadhar Number" readonly>
+                <input type="hidden" name="originalAadhar" value="Current Aadhar Number">
+            </div>
+
+            <div class="form-group">
+                <label for="pan">PAN Card Number:</label>
+                <input type="text" id="pan" name="pan" pattern="[A-Z]{5}[0-9]{4}[A-Z]{1}" value="Current PAN Number" readonly>
+                <input type="hidden" name="originalPAN" value="Current PAN Number">
+            </div>
+
+            <!-- Address Section -->
+            <h3>Address</h3>
+            <div class="form-group">
+                <label for="houseName">House Name:</label>
+                <input type="text" id="houseName" name="houseName" required>
+            </div>
+
+            <div class="form-group">
+                <label for="city">City:</label>
+                <input type="text" id="city" name="city" required>
+            </div>
+
+            <div class="form-group">
+                <label for="state">State:</label>
+                <input type="text" id="state" name="state" required>
+            </div>
+
+            <div class="form-group">
+                <label for="pincode">Pincode:</label>
+                <input type="text" id="pincode" name="pincode" required pattern="[0-9]{6}">
+            </div>
+
+            <div class="form-group">
+                <label for="landmark">Landmark:</label>
+                <input type="text" id="landmark" name="landmark" required>
+            </div>
+
+            <!-- Spouse Details Section -->
+            <h3>Spouse Details</h3>
+            <div class="form-group">
+                <label for="spouseName">Spouse Name:</label>
+                <input type="text" id="spouseName" name="spouseName" required>
+            </div>
+
+            <div class="form-group">
+                <label for="spouseDob">Spouse Date of Birth:</label>
+                <input type="date" id="spouseDob" name="spouseDob" required>
+            </div>
+
+            <!-- Children Details Section -->
+            <h3>Children Details</h3>
+            <div id="children-container">
+                <!-- Existing children can be dynamically added here -->
+                <div class="child-details">
+                    <h4>Child 1</h4>
+                    <div class="form-group">
+                        <label for="child1Name">Child Name:</label>
+                        <input type="text" id="child1Name" name="child1Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="child1Dob">Child Date of Birth:</label>
+                        <input type="date" id="child1Dob" name="child1Dob" required>
+                    </div>
+                </div>
+            </div>
+            <button type="button" id="add-child-button">Add Child</button>
+
+            <input type="submit" value="Update Profile">
+        </form>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="contact-info">
+                <h3>Contact Admin</h3>
+                <p>Email: webadmin.communitysite@gamil.com</p>
+                <p>Phone: +91-123-456-7890</p>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 Community Portal. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function validateEditForm() {
+            const mobile = document.getElementById('mobile').value;
+            const aadhar = document.getElementById('aadhar').value;
+
+            // Validate mobile number
+            if (mobile.length !== 10 || isNaN(mobile)) {
+                alert("Invalid Mobile Number. It must be 10 digits.");
+                return false;
+            }
+
+            // Validate Aadhar number
+            if (aadhar.length !== 12 || isNaN(aadhar)) {
+                alert("Invalid Aadhar Number. It must be 12 digits.");
+                return false;
+            }
+
+            return true; // Allow form submission if all validation passes
+        }
+
+        document.getElementById('add-child-button').addEventListener('click', function() {
+            const childrenContainer = document.getElementById('children-container');
+            const childCount = childrenContainer.getElementsByClassName('child-details').length + 1;
+
+            const newChildDiv = document.createElement('div');
+            newChildDiv.classList.add('child-details');
+            newChildDiv.innerHTML = `
+                <h4>Child ${childCount}</h4>
+                <div class="form-group">
+                    <label for="child${childCount}Name">Child Name:</label>
+                    <input type="text" id="child${childCount}Name" name="child${childCount}Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="child${childCount}Dob">Child Date of Birth:</label>
+                    <input type="date" id="child${childCount}Dob" name="child${childCount}Dob" required>
+                </div>
+            `;
+
+            childrenContainer.appendChild(newChildDiv);
+        });
+    </script>
+</body>
+</html>

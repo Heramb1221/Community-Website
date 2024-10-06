@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login</title>
+  <link rel="stylesheet" href="CSS/login.css">
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="logo">
+      <img src="Images/Website Logo.png" alt="Website Logo" width="50" height="50">
+      <h1>Community Portal</h1>
+    </div>
+    <nav>
+      <ul class="nav-bar">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">Find People</a></li>
+        <li><a href="#">Notices</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Admin Login Section -->
+  <section class="login-section">
+    <div class="login-container">
+      <h2>Admin Login</h2>
+      <form action="admin-dashboard.html" method="post">
+        <div class="input-group">
+          <label for="admin-email">Email:</label>
+          <input type="email" id="admin-email" name="admin-email" required>
+        </div>
+        <div class="input-group">
+          <label for="admin-password">Password:</label>
+          <input type="password" id="admin-password" name="admin-password" required>
+        </div>
+        <button type="submit" class="login-btn">Login</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2024 Community Portal. All Rights Reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

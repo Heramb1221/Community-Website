@@ -1,0 +1,126 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f8ff; /* Light background color matching the theme */
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #e0f7fa;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo h1 {
+    margin-left: 15px;
+    color: #2c3e50;
+}
+
+/* Navigation Bar */
+.nav-bar {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+}
+
+.nav-bar li {
+    margin: 0 15px;
+    padding: 10px 20px;
+    background-color: #81d4fa;
+    border-radius: 10px;
+}
+
+.nav-bar li a {
+    text-decoration: none;
+    color: #2c3e50;
+    font-weight: bold;
+}
+
+.nav-bar li:hover {
+    background-color: #4fc3f7;
+}
+
+/* Login Section */
+.login-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.login-container {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+.login-container h2 {
+    color: #2c3e50;
+    margin-bottom: 30px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+/* Adjust input field widths for uniformity */
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+}
+
+/* Style for mobile and aadhar specific inputs */
+#mobile, #aadhar {
+    background-color: #f9f9f9;
+}
+
+.login-btn {
+    background-color: #81d4fa;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: #4fc3f7;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #e0f7fa;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-content {
+    color: #2c3e50;
+}

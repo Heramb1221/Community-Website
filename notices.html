@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notices</title>
+    <link rel="stylesheet" href="CSS/notice.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="Images/Website Logo.png" alt="Website Logo" width="50" height="50">
+            <h1>Community Notices</h1>
+        </div>
+    </header>
+
+    <section class="notices-section">
+        <h2>Notices for Your Caste</h2>
+        <p id="userCaste">Your Caste: <strong>[User's Caste]</strong></p> <!-- Displaying user's caste -->
+        <div id="notices">
+            <!-- Example notice structure -->
+            <div class="notice-item">
+                <h3>[Notice Title]</h3>
+                <p><strong>Posted by:</strong> [User's Name] | <strong>Date:</strong> [Notice Date]</p>
+                <p>[Notice Content]</p>
+            </div>
+            <!-- More notices will be populated here -->
+        </div>
+    </section>
+
+    <section class="post-notice-section">
+        <h2>Post a Notice</h2>
+        <p id="userName">Posted by: <strong>[User's Name]</strong></p> <!-- Auto-generated user's name -->
+        <form method="post" action="post_notice_handler.php">
+            <div class="form-group">
+                <label for="noticeTitle">Title:</label>
+                <input type="text" id="noticeTitle" name="title" required>
+            </div>
+
+            <div class="form-group">
+                <label for="noticeContent">Content:</label>
+                <textarea id="noticeContent" name="content" rows="4" required></textarea>
+            </div>
+
+            <input type="hidden" id="userId" name="userId" value="[User's ID]"> <!-- Hidden field for user ID -->
+            <input type="submit" value="Post Notice">
+        </form>
+        <p>Note: All notices will be checked by an admin before publication.</p> <!-- Notice about admin check -->
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="contact-info">
+                <h3>Contact Admin</h3>
+                <p>Email: webadmin.communitysite@gamil.com</p>
+                <p>Phone: +91-123-456-7890</p>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 Community Portal. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Example: Set user's caste and name dynamically
+        const userCaste = "YourCasteHere"; // Replace with actual user's caste from server
+        const userName = "User's Full Name"; // Replace with actual user's name from server
+
+        document.getElementById('userCaste').innerHTML = `Your Caste: <strong>${userCaste}</strong>`;
+        document.getElementById('userName').innerHTML = `Posted by: <strong>${userName}</strong>`;
+    </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find People</title>
+    <link rel="stylesheet" href="CSS/people.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="Images/Website Logo.png" alt="Website Logo" width="50" height="50">
+            <h1>Find People</h1>
+        </div>
+    </header>
+
+    <section class="search-section">
+        <h2>Search for Community Members</h2>
+        
+        <form method="post" action="search_handler.php">
+            <div class="form-group">
+                <label for="caste">Caste:</label>
+                <input type="text" id="caste" name="caste" value="Your Caste" readonly>
+                <!-- If the user is admin, use a dropdown -->
+                <!-- <select id="caste" name="caste">
+                    <option value="Caste1">Caste1</option>
+                    <option value="Caste2">Caste2</option>
+                    ...
+                </select> -->
+            </div>
+
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter name">
+            </div>
+
+            <h3>Location-Based Search</h3>
+            <div class="form-group">
+                <label for="colony">Colony:</label>
+                <input type="text" id="colony" name="colony" placeholder="Enter colony name">
+            </div>
+            <div class="form-group">
+                <label for="city">City:</label>
+                <input type="text" id="city" name="city" placeholder="Enter city name">
+            </div>
+            <div class="form-group">
+                <label for="state">State:</label>
+                <input type="text" id="state" name="state" placeholder="Enter state name">
+            </div>
+            <div class="form-group">
+                <label for="pincode">Pincode:</label>
+                <input type="text" id="pincode" name="pincode" placeholder="Enter pincode" pattern="[0-9]{6}">
+            </div>
+
+            <input type="submit" value="Search">
+        </form>
+    </section>
+
+    <section class="results-section">
+        <h3>Search Results</h3>
+        <div id="results"></div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="contact-info">
+                <h3>Contact Admin</h3>
+                <p>Email: webadmin.communitysite@gamil.com</p>
+                <p>Phone: +91-123-456-7890</p>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 Community Portal. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
